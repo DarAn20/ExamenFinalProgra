@@ -1,0 +1,80 @@
+﻿@model IEnumerable<WebApplication1.Models.Meta>
+<!--Parte del disenos e logro gracias CHAT GPT-->
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div >
+    <h2 class="fw-bold mb-2">🎯 Gestión de Metas</h2>
+
+    <p class="text-muted mb-3">
+        Aquí puedes visualizar todas tus metas personales, darles seguimiento
+        y avanzar paso a paso hacia tus objetivos.
+    </p>
+
+  
+    <a asp-controller="Metas"
+       asp-action="Create"
+       class="btn btn-success btn-lg">
+        ➕ Crear Nueva Meta
+    </a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaCreacion)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Prioridad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaCreacion)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Prioridad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+                <td class="text-center action-buttons">
+                    <a asp-action="Edit" asp-route-id="@item.MetaID" class="btn btn-sm btn-outline-primary me-1">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                    <a asp-action="Details" asp-route-id="@item.MetaID" class="btn btn-sm btn-outline-secondary me-1">
+                        <i class="fa fa-eye"></i>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.MetaID" class="btn btn-sm btn-outline-danger">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

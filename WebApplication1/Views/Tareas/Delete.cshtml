@@ -1,0 +1,68 @@
+﻿@model WebApplication1.Models.Tarea
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Eliminar Tarea</h1>
+<div>
+    
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaCreacion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaCreacion)
+        </dd>
+      
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Dificultad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dificultad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TiempoEstimadoHoras)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TiempoEstimadoHoras)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Meta)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Meta.Categoria)
+        </dd>
+    </dl>
+    
+    <div class="mt-4 d-flex justify-content-between">
+
+        <!-- BOTÓN REGRESAR -->
+        <a asp-action="Index"
+           class="btn btn-outline-secondary">
+            ⬅️ Regresar
+        </a>
+
+        <!-- BOTÓN ELIMINAR -->
+        <form asp-action="Delete" method="post">
+            <input type="hidden" asp-for="TareaID" />
+            <button type="submit" class="btn btn-danger">
+                🗑️ Eliminar
+            </button>
+        </form>
+
+    </div>
+
+</div>

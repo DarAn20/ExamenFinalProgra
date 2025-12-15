@@ -1,0 +1,86 @@
+﻿@model WebApplication1.Models.Tarea
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Tarea</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Descripcion" class="control-label"></label>
+                <input asp-for="Descripcion" class="form-control" />
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaCreacion" class="control-label"></label>
+                <input asp-for="FechaCreacion" class="form-control" />
+                <span asp-validation-for="FechaCreacion" class="text-danger"></span>
+            </div>
+       
+            <div class="form-group">
+                <label asp-for="Estado" class="control-label"></label>
+
+                <select asp-for="Estado"
+                        asp-items="Html.GetEnumSelectList<EstadoTarea>()"
+                        class="form-control">
+                    <option value="">Seleccione el estado</option>
+                </select>
+
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Dificultad" class="control-label"></label>
+
+                <select asp-for="Dificultad"
+                        asp-items="Html.GetEnumSelectList<DificultadTarea>()"
+                        class="form-control">
+                    <option value="">Seleccione la dificultad</option>
+                </select>
+
+                <span asp-validation-for="Dificultad" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TiempoEstimadoHoras" class="control-label"></label>
+                <input asp-for="TiempoEstimadoHoras" class="form-control" />
+                <span asp-validation-for="TiempoEstimadoHoras" class="text-danger"></span>
+            </div>
+            <!--Parte del disenos e logro gracias CHAT GPT PATA PODER DESPLEGARLOS NOMBRES DE LAS TAREAS-->
+            <div class="form-group">
+                <label asp-for="MetaID" class="control-label">Meta</label>
+
+                <select asp-for="MetaID"
+                        asp-items="@(ViewData["MetaID"] as SelectList)"
+                        class="form-control">
+                    <option value="">Seleccione una meta</option>
+                </select>
+
+                <span asp-validation-for="MetaID" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="form-group my-4">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="mt-4 d-flex justify-content-between">
+    <a asp-action="Index" class="btn btn-secondary">
+        ⬅️ Regresar
+    </a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

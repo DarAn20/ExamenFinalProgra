@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+<!--Parte del disenos e logro gracias CHAT GPT-->
+<div class="container mt-5">
+
+    <!-- ENCABEZADO -->
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold">Gestión de Metas Personales</h1>
+        <p class="lead text-muted">
+            Organiza tus metas, divide en tareas y da seguimiento a tu progreso
+        </p>
+    </div>
+
+    <!-- TARJETAS PRINCIPALES -->
+    <div class="row justify-content-center text-center">
+
+        <!-- METAS -->
+        <div class="text-center col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">📌 Metas</h5>
+                    <p class="card-text">
+                        Crea y administra tus metas personales, define prioridades y fechas límite.
+                    </p>
+                    <a asp-controller="Metas" asp-action="Index" class="btn btn-primary">
+                        Ver Metas
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAREAS -->
+        <div class="text-center col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">✅ Tareas</h5>
+                    <p class="card-text">
+                        Divide tus metas en tareas claras y controla su avance.
+                    </p>
+                    <a asp-controller="Tareas" asp-action="Index" class="btn btn-success">
+                        Ver Tareas
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- SECCIÓN FINAL -->
+    <div class="text-center mt-5">
+        <p class="text-muted">
+            Proyecto desarrollado en ASP.NET Core MVC con Entity Framework
+        </p>
+    </div>
+
+</div>
